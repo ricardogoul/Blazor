@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ricar\\Desktop\\a\\ScreenSound\\ScreenSound.csproj": {}
+    "E:\\Projeto Estudos\\Blazor\\ScreenSound\\ScreenSound.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ricar\\Desktop\\a\\ScreenSound\\ScreenSound.csproj": {
+    "E:\\Projeto Estudos\\Blazor\\ScreenSound\\ScreenSound.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ricar\\Desktop\\a\\ScreenSound\\ScreenSound.csproj",
+        "projectUniqueName": "E:\\Projeto Estudos\\Blazor\\ScreenSound\\ScreenSound.csproj",
         "projectName": "ScreenSound",
-        "projectPath": "C:\\Users\\ricar\\Desktop\\a\\ScreenSound\\ScreenSound.csproj",
+        "projectPath": "E:\\Projeto Estudos\\Blazor\\ScreenSound\\ScreenSound.csproj",
         "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ricar\\Desktop\\a\\ScreenSound\\obj\\",
+        "outputPath": "E:\\Projeto Estudos\\Blazor\\ScreenSound\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ricar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
