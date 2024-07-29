@@ -10,47 +10,38 @@ namespace ScreenSound.Banco
 {
     internal class ArtistaDAL
     {
+        private readonly ScreenSoundContext _context;
+        public ArtistaDAL(ScreenSoundContext context)
+        {
+            _context = context;
+        }
+
         public IEnumerable<Artista> Listar()
         {
-            var lista = new List<Artista>();
-            using var connection = new ScreenSoundContext().ObterConexao();
-            connection.Open();
-
-            string sql = "SELECT * FROM Artistas";
-            SqlCommand sqlCommand = new SqlCommand(sql, connection);
-            using SqlDataReader reader = sqlCommand.ExecuteReader();
-
-            while (reader.Read())
-            {
-                int idArtista = Convert.ToInt32(reader["Id"]);
-                string nomeArtista = Convert.ToString(reader["Nome"]);
-                string bioArtista = Convert.ToString(reader["Bio"]);
-
-                Artista artista = new Artista(nomeArtista, bioArtista)
-                {
-                    Bio = bioArtista
-                };
-
-                lista.Add(artista);
-            }
-            return lista;
+            return _context.Artistas.ToList();
         }
 
         public void Adicionar(Artista artista)
         {
-            using var connection = new ScreenSoundContext().ObterConexao();
-            connection.Open();
+            _context.Artistas.Add(artista);
+            _context.SaveChanges();
+        }
 
-            string sql = "INSERT INTO Artistas (Nome, FotoPerfil, Bio) VALUES (@nome, @perfilPadrao, @bio)";
+        public void Atualizar(Artista artista)
+        {
+            _context.Artistas.Update(artista);
+            _context.SaveChanges();
+        }
 
-            SqlCommand sqlCommand = new SqlCommand(sql, connection);
+        public void Deletar(Artista artista) 
+        {
+            _context.Artistas.Remove(artista);
+            _context.SaveChanges();
+        }
 
-            sqlCommand.Parameters.AddWithValue("@nome", artista.Nome);
-            sqlCommand.Parameters.AddWithValue("@perfilPadrao", artista.FotoPerfil);
-            sqlCommand.Parameters.AddWithValue("@bio", artista.Bio);
-
-            int retorno = sqlCommand.ExecuteNonQuery();
-            Console.WriteLine($"Linhas afetadas: {retorno}");
+        public IEnumerable<Artista>? RecuperarPeloNome(string nome) 
+        {
+            return _context.Artistas.Where(artista => artista.Nome.Contains(nome)).ToList();
         }
     }
 }

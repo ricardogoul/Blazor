@@ -4,10 +4,13 @@ using ScreenSound.Modelos;
 
 try
 {
-    var artistaDAL = new ArtistaDAL();
-    artistaDAL.Adicionar(new Artista("Foo Fighters", "Bio Foo Fighters"));
+    var context = new ScreenSoundContext();
+    var artistaDAL = new ArtistaDAL(context);
 
-    var listaArtistas = artistaDAL.Listar();
+    var novoArtista = new Artista("Teste", "Teste de texto") { Id = 2};
+    //artistaDAL.RecuperarPeloNome("Teste");
+
+    var listaArtistas = artistaDAL.RecuperarPeloNome("cred");
 
     foreach (var artista in listaArtistas)
     {
