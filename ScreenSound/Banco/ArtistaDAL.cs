@@ -13,7 +13,7 @@ namespace ScreenSound.Banco
         public IEnumerable<Artista> Listar()
         {
             var lista = new List<Artista>();
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = "SELECT * FROM Artistas";
@@ -38,7 +38,7 @@ namespace ScreenSound.Banco
 
         public void Adicionar(Artista artista)
         {
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = "INSERT INTO Artistas (Nome, FotoPerfil, Bio) VALUES (@nome, @perfilPadrao, @bio)";
