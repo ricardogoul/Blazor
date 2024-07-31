@@ -21,4 +21,8 @@ internal class Menu
     {
         Console.Clear();
     }
+    public virtual void Executar(DAL<Musica> musicaDAL)
+    {
+        Console.Clear();
+    }
 }
