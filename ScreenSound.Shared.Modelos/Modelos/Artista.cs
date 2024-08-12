@@ -1,7 +1,11 @@
 ﻿namespace ScreenSound.Modelos; 
 
 public class Artista 
-{   
+{
+    public Artista()
+    {
+        FotoPerfil = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+    }
     public Artista(string nome, string bio)
     {
         Nome = nome;
