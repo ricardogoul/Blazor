@@ -11,7 +11,7 @@ using ScreenSound.Banco;
 namespace ScreenSound.Migrations
 {
     [DbContext(typeof(ScreenSoundContext))]
-    [Migration("20240731123916_projetoInicial")]
+    [Migration("20231110171503_projetoInicial")]
     partial class projetoInicial
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace ScreenSound.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
